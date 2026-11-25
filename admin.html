@@ -6,9 +6,9 @@
 <header class="atas"><div><h1>Administrator</h1><small>Ubah, tambah, atau hapus harga seragam dan peralatan</small></div><a href="index.html">Kembali ke kalkulator</a></header>
 <main>
   <section class="kartu">
-    <div class="banner" id="info">Perubahan di halaman ini <b>belum tersimpan</b> sampai Anda menekan <b>Unduh harga.json</b> dan mengganti file <code>harga.json</code> di repo. Kalkulator hanya membaca file itu.</div>
+    <div class="banner" id="info">Perubahan di halaman ini hanya ada di browser Anda dan <b>hilang saat halaman ditutup atau dimuat ulang</b>. Harga yang dipakai kalkulator tetap dari file <code>harga.json</code> di repo.</div>
     <div class="tabs"><button class="tab aktif" data-j="seragam">Seragam</button><button class="tab" data-j="peralatan">Peralatan</button></div>
-    <div class="bar"><input class="cari" id="cari" type="search" placeholder="Cari nama barang"><button class="btn utama" id="tambah">+ Tambah item</button><button class="btn utama" id="unduh">Unduh harga.json</button><button class="btn" id="batal" hidden>Buang perubahan</button></div>
+    <div class="bar"><input class="cari" id="cari" type="search" placeholder="Cari nama barang"><button class="btn utama" id="tambah">+ Tambah item</button><button class="btn" id="batal" hidden>Buang perubahan</button></div>
     <div class="catatan" id="status" style="margin:0 0 8px"></div>
     <table class="adm"><thead><tr><th>Kategori</th><th>Nama</th><th class="r">Harga jual</th><th></th></tr></thead><tbody id="tbody"></tbody></table>
   </section>
@@ -41,7 +41,7 @@ function gambar() {
   $('tbody').innerHTML = baris.length ? baris.map(r => `<tr><td>${esc(r.kategori)}</td><td><b>${esc(r.nama)}</b></td><td class="r">${rp(r.harga)}</td>
     <td class="r"><button class="btn" data-a="ubah" data-id="${r.id}">Ubah</button> <button class="btn bahaya" data-a="hapus" data-id="${r.id}">Hapus</button></td></tr>`).join('')
     : '<tr><td colspan="4" class="kosong">Tidak ada item.</td></tr>';
-  $('status').textContent = `${SEMUA.length} item (${SEMUA.filter(r => r.jenis === 'seragam').length} seragam, ${SEMUA.filter(r => r.jenis === 'peralatan').length} peralatan)` + (berubah() ? ' · ada perubahan yang belum diunduh' : '');
+  $('status').textContent = `${SEMUA.length} item (${SEMUA.filter(r => r.jenis === 'seragam').length} seragam, ${SEMUA.filter(r => r.jenis === 'peralatan').length} peralatan)` + (berubah() ? ' · ada perubahan sementara (belum permanen)' : '');
   $('batal').hidden = !berubah();
 }
 function bukaForm(r) {
@@ -60,7 +60,7 @@ $('tbody').addEventListener('click', e => {
   const b = e.target.closest('button'); if (!b) return; const r = SEMUA.find(x => x.id == b.dataset.id); if (!r) return;
   if (b.dataset.a === 'ubah') return bukaForm(r);
   if (!confirm(`Hapus "${r.nama}"?`)) return;
-  SEMUA = SEMUA.filter(x => x !== r); toast('Item dihapus (belum diunduh)'); gambar();
+  SEMUA = SEMUA.filter(x => x !== r); toast('Item dihapus (sementara)'); gambar();
 });
 $('form').addEventListener('submit', e => {
   e.preventDefault();
@@ -71,14 +71,9 @@ $('form').addEventListener('submit', e => {
   if (edit) Object.assign(edit, { jenis: j, kategori: k, nama: n, harga: h });
   else SEMUA.push({ id: Math.max(0, ...SEMUA.map(x => x.id)) + 1, jenis: j, kategori: k, nama: n, harga: h });
   $('dlg').close(); jenis = j; document.querySelectorAll('.tab').forEach(x => x.classList.toggle('aktif', x.dataset.j === jenis));
-  toast('Diubah (belum diunduh)'); gambar();
+  toast('Diubah (sementara)'); gambar();
 });
 $('batal').addEventListener('click', () => { if (confirm('Buang semua perubahan yang belum diunduh?')) muat(); });
-$('unduh').addEventListener('click', () => {
-  const urut = [...SEMUA].sort((a, b) => a.jenis.localeCompare(b.jenis) || a.kategori.localeCompare(b.kategori) || a.nama.localeCompare(b.nama));
-  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([JSON.stringify(urut, null, 1)], { type: 'application/json' }));
-  a.download = 'harga.json'; a.click(); URL.revokeObjectURL(a.href); toast('harga.json diunduh. Ganti file di repo.');
-});
 window.addEventListener('beforeunload', e => { if (berubah()) { e.preventDefault(); e.returnValue = ''; } });
 muat();
 </script>
