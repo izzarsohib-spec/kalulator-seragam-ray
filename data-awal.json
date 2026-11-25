@@ -1,0 +1,751 @@
+[
+ {
+  "id": 1,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "SERAGAM PDL",
+  "harga": 265000
+ },
+ {
+  "id": 2,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "SERAGAM PDH",
+  "harga": 255000
+ },
+ {
+  "id": 3,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "SERAGAM PDL SUS",
+  "harga": 265000
+ },
+ {
+  "id": 4,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "SERAGAM PDL BORDIR TIMBUL + NAMA",
+  "harga": 295000
+ },
+ {
+  "id": 5,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "SERAGAM PDH BORDIR TIMBUL + NAMA",
+  "harga": 285000
+ },
+ {
+  "id": 6,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "SERAGAM PDL (BAHAN GAIA)",
+  "harga": 325000
+ },
+ {
+  "id": 7,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "SERAGAM PDH (BAHAN GAIA)",
+  "harga": 315000
+ },
+ {
+  "id": 8,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "SAFARI LENGAN PENDEK",
+  "harga": 300000
+ },
+ {
+  "id": 9,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "SAFARI LENGAN PANJANG",
+  "harga": 310000
+ },
+ {
+  "id": 10,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "SAFARI LENGAN PANJANG (BAHAN JETBLACK)",
+  "harga": 335000
+ },
+ {
+  "id": 11,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "SERAGAM KAMDAL BORDIR TIMBUL + NAMA",
+  "harga": 355000
+ },
+ {
+  "id": 12,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "SERAGAM KEBERSIHAN PENDEK MERAH",
+  "harga": 260000
+ },
+ {
+  "id": 13,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "SERAGAM KEBERSIHAN PENDEK BIRU",
+  "harga": 260000
+ },
+ {
+  "id": 14,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "SERAGAM KEBERSIHAN PANJANG MERAH",
+  "harga": 270000
+ },
+ {
+  "id": 15,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "SERAGAM KEBERSIHAN PANJANG BIRU",
+  "harga": 270000
+ },
+ {
+  "id": 16,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "SERAGAM PRAMUBHAKTI DRILL(AMERICAN DRILL)",
+  "harga": 340000
+ },
+ {
+  "id": 17,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "SERAGAM PRAMUBHAKTI NAGATA",
+  "harga": 365000
+ },
+ {
+  "id": 18,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "SERAGAM BATIK PENDEK",
+  "harga": 305000
+ },
+ {
+  "id": 19,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "SERAGAM BATIK PANJANG + BORDIR",
+  "harga": 315000
+ },
+ {
+  "id": 20,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "SERAGAM BATIK LURIK PANJANG + BORDIR",
+  "harga": 315000
+ },
+ {
+  "id": 21,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "SERAGAM BATIK LURIK PENDEK+ BORDIR",
+  "harga": 300000
+ },
+ {
+  "id": 22,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "KAOS PHH SABLON",
+  "harga": 80000
+ },
+ {
+  "id": 23,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "KAOS PHH DTF",
+  "harga": 125000
+ },
+ {
+  "id": 24,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "KAOS POLO KATUN KERAH",
+  "harga": 155000
+ },
+ {
+  "id": 25,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "CELANA PDH",
+  "harga": 165000
+ },
+ {
+  "id": 26,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "CELANA PDL",
+  "harga": 165000
+ },
+ {
+  "id": 27,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "CELANA CS HITAM(CHINOS)",
+  "harga": 155000
+ },
+ {
+  "id": 28,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "KAOS DALAM KREM",
+  "harga": 70000
+ },
+ {
+  "id": 29,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "SERAGAM TACTICAL BORDIR TIMBUL",
+  "harga": 405000
+ },
+ {
+  "id": 30,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "SERAGAM TACTICAL BORDIR BIASA",
+  "harga": 375000
+ },
+ {
+  "id": 31,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "SERAGAM HITAM PUTIH POLOS PENDEK",
+  "harga": 245000
+ },
+ {
+  "id": 32,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "SERAGAM HITAM PUTIH BORDIR PENDEK",
+  "harga": 275000
+ },
+ {
+  "id": 33,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "SERAGAM HITAM PUTIH POLOS PANJANG",
+  "harga": 255000
+ },
+ {
+  "id": 34,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "SERAGAM HITAM PUTIH BORDIR PANJANG",
+  "harga": 285000
+ },
+ {
+  "id": 35,
+  "jenis": "seragam",
+  "kategori": "Seragam setelan",
+  "nama": "SETELAN BLAZER, KEMEJA PUTIH POLOS, CELANA HITAM",
+  "harga": 405000
+ },
+ {
+  "id": 36,
+  "jenis": "seragam",
+  "kategori": "Baju saja",
+  "nama": "ATASAN PDH",
+  "harga": 170000
+ },
+ {
+  "id": 37,
+  "jenis": "seragam",
+  "kategori": "Baju saja",
+  "nama": "ATASAN PDL",
+  "harga": 185000
+ },
+ {
+  "id": 38,
+  "jenis": "seragam",
+  "kategori": "Baju saja",
+  "nama": "SERAGAM KEBERSIHAN PENDEK (BAJU SAJA)",
+  "harga": 160000
+ },
+ {
+  "id": 39,
+  "jenis": "seragam",
+  "kategori": "Baju saja",
+  "nama": "SERAGAM KEBERSIHAN PANJANG (BAJU SAJA)",
+  "harga": 170000
+ },
+ {
+  "id": 40,
+  "jenis": "seragam",
+  "kategori": "Baju saja",
+  "nama": "BAJU TEKNISI (BAJU SAJA)",
+  "harga": 155000
+ },
+ {
+  "id": 41,
+  "jenis": "seragam",
+  "kategori": "Baju saja",
+  "nama": "SERAGAM PRAMUBHAKTI DRILL (BAJU SAJA)",
+  "harga": 155000
+ },
+ {
+  "id": 42,
+  "jenis": "seragam",
+  "kategori": "Baju saja",
+  "nama": "SERAGAM PRAMUBHAKTI NAGATA (BAJU SAJA)",
+  "harga": 195000
+ },
+ {
+  "id": 43,
+  "jenis": "seragam",
+  "kategori": "Baju saja",
+  "nama": "SERAGAM PRAMUBHAKTI TWIS (BAJU SAJA)",
+  "harga": 260000
+ },
+ {
+  "id": 44,
+  "jenis": "seragam",
+  "kategori": "Baju saja",
+  "nama": "SERAGAM DRIVER (BAJU SAJA)(BAHAN DRILL)",
+  "harga": 155000
+ },
+ {
+  "id": 45,
+  "jenis": "seragam",
+  "kategori": "Baju saja",
+  "nama": "ATASAN PUTIH POLOS LENGAN PANJANG + BORDIR",
+  "harga": 155000
+ },
+ {
+  "id": 46,
+  "jenis": "seragam",
+  "kategori": "Sepatu",
+  "nama": "SEPATU PDH DOOF",
+  "harga": 205000
+ },
+ {
+  "id": 47,
+  "jenis": "seragam",
+  "kategori": "Sepatu",
+  "nama": "SEPATU PDH HANDYMAN",
+  "harga": 315000
+ },
+ {
+  "id": 48,
+  "jenis": "seragam",
+  "kategori": "Sepatu",
+  "nama": "SEPATU PDL COBRA",
+  "harga": 205000
+ },
+ {
+  "id": 49,
+  "jenis": "seragam",
+  "kategori": "Sepatu",
+  "nama": "SEPATU PDL HALUS DOFF",
+  "harga": 260000
+ },
+ {
+  "id": 50,
+  "jenis": "seragam",
+  "kategori": "Sepatu",
+  "nama": "SEPATU PDL KULIT ASLI TNI/POLRI",
+  "harga": 270000
+ },
+ {
+  "id": 51,
+  "jenis": "seragam",
+  "kategori": "Sepatu",
+  "nama": "SEPATU PDH SUS SECWAN PDH SUS (BIASA)",
+  "harga": 245000
+ },
+ {
+  "id": 52,
+  "jenis": "seragam",
+  "kategori": "Sepatu",
+  "nama": "SEPATU PDH SUS SECWAN DENAWARI (BAGUS)",
+  "harga": 310000
+ },
+ {
+  "id": 53,
+  "jenis": "seragam",
+  "kategori": "Sepatu",
+  "nama": "SEPATU KEBERSIHAN KETS",
+  "harga": 165000
+ },
+ {
+  "id": 54,
+  "jenis": "seragam",
+  "kategori": "Sepatu",
+  "nama": "SEPATU PRAMUBHAKTI KETS",
+  "harga": 165000
+ },
+ {
+  "id": 55,
+  "jenis": "seragam",
+  "kategori": "Aksesoris",
+  "nama": "IKAT PINGGANG SATPAM",
+  "harga": 38000
+ },
+ {
+  "id": 56,
+  "jenis": "seragam",
+  "kategori": "Aksesoris",
+  "nama": "KAOS KAKI PDH",
+  "harga": 25000
+ },
+ {
+  "id": 57,
+  "jenis": "seragam",
+  "kategori": "Aksesoris",
+  "nama": "KAOS KAKI PDL",
+  "harga": 30000
+ },
+ {
+  "id": 58,
+  "jenis": "seragam",
+  "kategori": "Aksesoris",
+  "nama": "TALI KUR HITAM + PELUIT",
+  "harga": 35000
+ },
+ {
+  "id": 59,
+  "jenis": "seragam",
+  "kategori": "Aksesoris",
+  "nama": "KOPEL SATPAM BIASA",
+  "harga": 43000
+ },
+ {
+  "id": 60,
+  "jenis": "seragam",
+  "kategori": "Aksesoris",
+  "nama": "KOPEL SATPAM HITAM",
+  "harga": 53000
+ },
+ {
+  "id": 61,
+  "jenis": "seragam",
+  "kategori": "Aksesoris",
+  "nama": "TOPI PDL JALA",
+  "harga": 40000
+ },
+ {
+  "id": 62,
+  "jenis": "seragam",
+  "kategori": "Aksesoris",
+  "nama": "TOPI PET SAPTAM + EMBLEM",
+  "harga": 70000
+ },
+ {
+  "id": 63,
+  "jenis": "seragam",
+  "kategori": "Aksesoris",
+  "nama": "BED LOGO LAMBANG POLDA DLL",
+  "harga": 25000
+ },
+ {
+  "id": 64,
+  "jenis": "seragam",
+  "kategori": "Aksesoris",
+  "nama": "BED LOGO LAMBANG POLDA DLL(BORDIR TIMBUL)",
+  "harga": 100000
+ },
+ {
+  "id": 65,
+  "jenis": "seragam",
+  "kategori": "Aksesoris",
+  "nama": "ROMPI TEBAL JALA",
+  "harga": 245000
+ },
+ {
+  "id": 66,
+  "jenis": "seragam",
+  "kategori": "Aksesoris",
+  "nama": "ROMPI BIASA",
+  "harga": 120000
+ },
+ {
+  "id": 67,
+  "jenis": "seragam",
+  "kategori": "Aksesoris",
+  "nama": "PIN SATPAM/KEWENANGAN",
+  "harga": 30000
+ },
+ {
+  "id": 68,
+  "jenis": "seragam",
+  "kategori": "Aksesoris",
+  "nama": "PIN GP/SATPAM",
+  "harga": 15000
+ },
+ {
+  "id": 69,
+  "jenis": "seragam",
+  "kategori": "Aksesoris",
+  "nama": "BADGE NAMA",
+  "harga": 15000
+ },
+ {
+  "id": 70,
+  "jenis": "seragam",
+  "kategori": "Aksesoris",
+  "nama": "BAN DANRU",
+  "harga": 100000
+ },
+ {
+  "id": 71,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "ATK DAN TINTA PRINTER",
+  "harga": 100000
+ },
+ {
+  "id": 72,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "BATERAI",
+  "harga": 20000
+ },
+ {
+  "id": 73,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "BENDERA SEMAPORE",
+  "harga": 25000
+ },
+ {
+  "id": 74,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "BORGOL",
+  "harga": 50000
+ },
+ {
+  "id": 75,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "BUKU MUTASI",
+  "harga": 35000
+ },
+ {
+  "id": 76,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "DISPENSER",
+  "harga": 225000
+ },
+ {
+  "id": 77,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "FINGER PRINT",
+  "harga": 1500000
+ },
+ {
+  "id": 78,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "GEMBOK",
+  "harga": 50000
+ },
+ {
+  "id": 79,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "HELM FULL FACE PKD",
+  "harga": 325000
+ },
+ {
+  "id": 80,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "HELM PKD",
+  "harga": 120000
+ },
+ {
+  "id": 81,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "HELM PROYEK",
+  "harga": 70000
+ },
+ {
+  "id": 82,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "HT",
+  "harga": 600000
+ },
+ {
+  "id": 83,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "HT HYTERA",
+  "harga": 2000000
+ },
+ {
+  "id": 84,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "INSPECTION MIRROR",
+  "harga": 1000000
+ },
+ {
+  "id": 85,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "JAS HUJAN SATPAM",
+  "harga": 185000
+ },
+ {
+  "id": 86,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "JAS HUJAN STELLAN (ATASAN +CELANA)",
+  "harga": 220000
+ },
+ {
+  "id": 87,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "LAMPU LALIN",
+  "harga": 120000
+ },
+ {
+  "id": 88,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "LAMPU LALIN PANJANG",
+  "harga": 120000
+ },
+ {
+  "id": 89,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "MEJA LIPAT PKD",
+  "harga": 400000
+ },
+ {
+  "id": 90,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "P3K",
+  "harga": 783000
+ },
+ {
+  "id": 91,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "PATROLI AMANO",
+  "harga": 5000000
+ },
+ {
+  "id": 92,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "PAYUNG BESAR PKD",
+  "harga": 600000
+ },
+ {
+  "id": 93,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "PAYUNG CUSTOMER",
+  "harga": 150000
+ },
+ {
+  "id": 94,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "PELUIT",
+  "harga": 5000
+ },
+ {
+  "id": 95,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "ROMPI",
+  "harga": 225000
+ },
+ {
+  "id": 96,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "ROMPI TIPIS",
+  "harga": 110000
+ },
+ {
+  "id": 97,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "SAPU",
+  "harga": 40000
+ },
+ {
+  "id": 98,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "SENTER",
+  "harga": 120000
+ },
+ {
+  "id": 99,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "SENTER BESAR",
+  "harga": 300000
+ },
+ {
+  "id": 100,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "SEPATU BOOT",
+  "harga": 160000
+ },
+ {
+  "id": 101,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "SEPATU PDH",
+  "harga": 210000
+ },
+ {
+  "id": 102,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "STOPER",
+  "harga": 170000
+ },
+ {
+  "id": 103,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "TEMPAT SAMPAH",
+  "harga": 100000
+ },
+ {
+  "id": 104,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "TOA",
+  "harga": 300000
+ },
+ {
+  "id": 105,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "TONGKAT",
+  "harga": 50000
+ },
+ {
+  "id": 106,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "TOPI COKLAT PDL JALA",
+  "harga": 35000
+ },
+ {
+  "id": 107,
+  "jenis": "peralatan",
+  "kategori": "Peralatan",
+  "nama": "TRAFFIC CONE",
+  "harga": 150000
+ }
+]

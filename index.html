@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kalkulator Estimasi Seragam & Peralatan</title>
+<link rel="stylesheet" href="gaya.css">
+</head><body>
+<header class="atas"><div><h1>Kalkulator Estimasi Seragam & Peralatan</h1><small>Hitung perkiraan anggaran client. Tidak ada data yang disimpan.</small></div><a href="admin.html">Administrator</a></header>
+<main>
+  <div class="banner" id="banner" hidden></div>
+  <div class="grid">
+    <section class="kartu">
+      <div class="tabs"><button class="tab aktif" data-j="seragam">Seragam</button><button class="tab" data-j="peralatan">Peralatan</button></div>
+      <input class="cari" id="cari" type="search" placeholder="Cari nama barang" autocomplete="off">
+      <div class="chips" id="chips"></div>
+      <div class="daftar" id="daftar"><div class="kosong">Memuat daftar harga…</div></div>
+    </section>
+    <aside class="kartu ringkas">
+      <h2>Ringkasan estimasi</h2>
+      <div id="rincian"><div class="kosong">Isi jumlah pada barang yang dipilih.</div></div>
+      <div class="sub"><span>Subtotal seragam</span><b id="subS">Rp 0</b></div>
+      <div class="sub"><span>Subtotal peralatan</span><b id="subP">Rp 0</b></div>
+      <div class="total"><span>Total</span><span id="total">Rp 0</span></div>
+      <label class="f" style="margin-top:10px">Jumlah personel (opsional, untuk hitung per orang)<input id="orang" type="number" min="0" inputmode="numeric" placeholder="mis. 25"></label>
+      <div class="sub" id="perOrangBaris" hidden><span>Estimasi per personel</span><b id="perOrang"></b></div>
+      <div class="aksi"><button class="btn utama" id="salin">Salin ringkasan</button><button class="btn" id="reset">Kosongkan</button></div>
+      <p class="catatan">Harga jual per satuan. Hasil hanya perkiraan dan hilang saat halaman ditutup.</p>
+    </aside>
+  </div>
+</main>
+<div class="toast" id="toast"></div>
+<script src="config.js"></script><script src="umum.js"></script>
+<script>
+let SEMUA = [], jenis = 'seragam', kat = '', kunci = '';
+const QTY = new Map(); // id -> jumlah (hanya di memori, tidak disimpan)
+const $ = id => document.getElementById(id);
+
+function toast(t) { const e = $('toast'); e.textContent = t; e.classList.add('tampil'); setTimeout(() => e.classList.remove('tampil'), 1800); }
+
+function gambarDaftar() {
+  const dalam = SEMUA.filter(r => r.jenis === jenis);
+  const kats = [...new Set(dalam.map(r => r.kategori))];
+  $('chips').innerHTML = kats.length > 1 ? [['', 'Semua'], ...kats.map(k => [k, k])].map(([k, l]) => `<button class="chip ${kat === k ? 'aktif' : ''}" data-k="${esc(k)}">${esc(l)}</button>`).join('') : '';
+  const q = kunci.trim().toLowerCase();
+  const tampil = dalam.filter(r => (!kat || r.kategori === kat) && (!q || r.nama.toLowerCase().includes(q)));
+  $('daftar').innerHTML = tampil.length ? tampil.map(r => `<div class="baris">
+      <div><div class="nama">${esc(r.nama)}</div><div class="kat">${esc(r.kategori)}</div></div>
+      <div class="harga">${rp(r.harga)}</div>
+      <input class="qty" type="number" min="0" inputmode="numeric" placeholder="0" data-id="${r.id}" value="${QTY.get(r.id) || ''}" aria-label="Jumlah ${esc(r.nama)}"></div>`).join('')
+    : '<div class="kosong">Tidak ada barang yang cocok.</div>';
+}
+
+function hitung() {
+  let s = 0, p = 0, html = '';
+  for (const r of SEMUA) {
+    const n = QTY.get(r.id) || 0; if (!n) continue;
+    const t = n * r.harga; (r.jenis === 'seragam' ? (s += t) : (p += t));
+    html += `<div class="rbaris"><span>${esc(r.nama)}<br><small style="color:var(--redup)">${n} × ${rp(r.harga)}</small></span><b>${rp(t)}</b></div>`;
+  }
+  $('rincian').innerHTML = html || '<div class="kosong">Isi jumlah pada barang yang dipilih.</div>';
+  $('subS').textContent = rp(s); $('subP').textContent = rp(p); $('total').textContent = rp(s + p);
+  const o = +$('orang').value || 0;
+  $('perOrangBaris').hidden = !(o > 0 && s + p > 0); if (o > 0) $('perOrang').textContent = rp((s + p) / o);
+  return { s, p, o };
+}
+
+$('daftar').addEventListener('input', e => {
+  if (!e.target.classList.contains('qty')) return;
+  const n = Math.max(0, Math.floor(+e.target.value || 0)); const id = +e.target.dataset.id;
+  n ? QTY.set(id, n) : QTY.delete(id); hitung();
+});
+$('chips').addEventListener('click', e => { const b = e.target.closest('.chip'); if (!b) return; kat = b.dataset.k; gambarDaftar(); });
+document.querySelector('.tabs').addEventListener('click', e => {
+  const b = e.target.closest('.tab'); if (!b) return; jenis = b.dataset.j; kat = '';
+  document.querySelectorAll('.tab').forEach(x => x.classList.toggle('aktif', x === b)); gambarDaftar();
+});
+$('cari').addEventListener('input', e => { kunci = e.target.value; gambarDaftar(); });
+$('orang').addEventListener('input', hitung);
+$('reset').addEventListener('click', () => { QTY.clear(); $('orang').value = ''; gambarDaftar(); hitung(); });
+$('salin').addEventListener('click', async () => {
+  const { s, p, o } = hitung(); if (!s && !p) return toast('Belum ada barang dipilih');
+  const baris = SEMUA.filter(r => QTY.get(r.id)).map(r => `- ${r.nama}: ${QTY.get(r.id)} × ${rp(r.harga)} = ${rp(QTY.get(r.id) * r.harga)}`);
+  const teks = ['Estimasi seragam & peralatan', ...baris, `Subtotal seragam: ${rp(s)}`, `Subtotal peralatan: ${rp(p)}`, `TOTAL: ${rp(s + p)}`, ...(o > 0 ? [`Per personel (${o} orang): ${rp((s + p) / o)}`] : [])].join('\n');
+  try { await navigator.clipboard.writeText(teks); toast('Ringkasan disalin'); } catch { toast('Gagal menyalin'); }
+});
+
+muatDaftar().then(({ data, sumber, galat }) => {
+  SEMUA = data;
+  if (sumber === 'awal') { const b = $('banner'); b.hidden = false; b.textContent = 'Memakai daftar harga awal bawaan karena database kalkulator belum siap (' + galat + '). Edit harga lewat Administrator baru berlaku setelah database disiapkan.'; }
+  gambarDaftar(); hitung();
+});
+</script>
+</body></html>

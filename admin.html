@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Administrator - Kalkulator Estimasi</title>
+<link rel="stylesheet" href="gaya.css">
+</head><body>
+<header class="atas"><div><h1>Administrator</h1><small>Ubah, tambah, atau hapus harga seragam dan peralatan</small></div><a href="index.html">Kembali ke kalkulator</a></header>
+<main>
+  <section class="kartu" id="masuk" style="max-width:420px;margin:30px auto">
+    <h2 style="margin-top:0">Masuk administrator</h2>
+    <label class="f">Kode admin<input id="kode" type="password" autocomplete="off"></label>
+    <div class="pesan" id="pMasuk"></div>
+    <button class="btn utama" id="bMasuk">Masuk</button>
+  </section>
+
+  <section class="kartu" id="isi" hidden>
+    <div class="banner" id="banner" hidden></div>
+    <div class="tabs"><button class="tab aktif" data-j="seragam">Seragam</button><button class="tab" data-j="peralatan">Peralatan</button></div>
+    <div class="bar"><input class="cari" id="cari" type="search" placeholder="Cari nama barang"><button class="btn utama" id="tambah">+ Tambah item</button><button class="btn" id="keluar">Keluar</button></div>
+    <table class="adm"><thead><tr><th>Kategori</th><th>Nama</th><th class="r">Harga jual</th><th></th></tr></thead><tbody id="tbody"></tbody></table>
+  </section>
+</main>
+
+<dialog id="dlg"><form method="dialog" id="form">
+  <h3 id="dJudul" style="margin-top:0"></h3>
+  <label class="f">Jenis<select id="fJenis"><option value="seragam">Seragam</option><option value="peralatan">Peralatan</option></select></label>
+  <label class="f">Kategori<input id="fKat" list="daftarKat" required></label><datalist id="daftarKat"></datalist>
+  <label class="f">Nama barang<input id="fNama" required></label>
+  <label class="f">Harga jual (Rp)<input id="fHarga" type="number" min="0" required></label>
+  <div class="pesan" id="pForm"></div>
+  <div class="aksi"><button class="btn utama" id="dSimpan" type="submit">Simpan</button><button class="btn" id="dBatal" type="button">Batal</button></div>
+</form></dialog>
+<div class="toast" id="toast"></div>
+<script src="config.js"></script><script src="umum.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+let KODE = '', SEMUA = [], jenis = 'seragam', kunci = '', edit = null, dbSiap = false;
+const toast = t => { const e = $('toast'); e.textContent = t; e.classList.add('tampil'); setTimeout(() => e.classList.remove('tampil'), 1800); };
+
+async function muat() {
+  const { data, sumber } = await muatDaftar(); SEMUA = data; dbSiap = sumber === 'db';
+  const b = $('banner'); b.hidden = dbSiap;
+  if (!dbSiap) b.textContent = 'Database kalkulator belum disiapkan (jalankan supabase.sql). Daftar di bawah hanya contoh dari data awal dan belum bisa disimpan.';
+  gambar();
+}
+function gambar() {
+  const q = kunci.trim().toLowerCase();
+  const baris = SEMUA.filter(r => r.jenis === jenis && (!q || (r.nama + ' ' + r.kategori).toLowerCase().includes(q)));
+  $('tbody').innerHTML = baris.length ? baris.map(r => `<tr><td>${esc(r.kategori)}</td><td><b>${esc(r.nama)}</b></td><td class="r">${rp(r.harga)}</td>
+    <td class="r"><button class="btn" data-a="ubah" data-id="${r.id}">Ubah</button> <button class="btn bahaya" data-a="hapus" data-id="${r.id}">Hapus</button></td></tr>`).join('')
+    : '<tr><td colspan="4" class="kosong">Tidak ada item.</td></tr>';
+}
+function bukaForm(r) {
+  edit = r || null; $('dJudul').textContent = r ? 'Ubah item' : 'Tambah item'; $('pForm').textContent = '';
+  $('fJenis').value = r ? r.jenis : jenis; $('fKat').value = r ? r.kategori : (jenis === 'peralatan' ? 'Peralatan' : '');
+  $('fNama').value = r ? r.nama : ''; $('fHarga').value = r ? r.harga : '';
+  $('daftarKat').innerHTML = [...new Set(SEMUA.map(x => x.kategori))].map(k => `<option value="${esc(k)}">`).join('');
+  $('dlg').showModal(); $('fNama').focus();
+}
+
+$('bMasuk').addEventListener('click', async () => {
+  const k = $('kode').value; $('pMasuk').textContent = '';
+  try { if (!(await rpc('kalk_cek', { p_kode: k }))) return $('pMasuk').textContent = 'Kode admin salah.';
+    KODE = k; $('masuk').hidden = true; $('isi').hidden = false; await muat();
+  } catch (e) { $('pMasuk').textContent = /function|schema|404|Could not find/i.test(e.message) ? 'Database kalkulator belum disiapkan (jalankan supabase.sql dulu).' : e.message; }
+});
+$('kode').addEventListener('keydown', e => { if (e.key === 'Enter') $('bMasuk').click(); });
+$('keluar').addEventListener('click', () => location.reload());
+$('cari').addEventListener('input', e => { kunci = e.target.value; gambar(); });
+document.querySelector('.tabs').addEventListener('click', e => { const b = e.target.closest('.tab'); if (!b) return; jenis = b.dataset.j; document.querySelectorAll('.tab').forEach(x => x.classList.toggle('aktif', x === b)); gambar(); });
+$('tambah').addEventListener('click', () => bukaForm(null));
+$('dBatal').addEventListener('click', () => $('dlg').close());
+$('tbody').addEventListener('click', async e => {
+  const b = e.target.closest('button'); if (!b) return; const r = SEMUA.find(x => x.id == b.dataset.id); if (!r) return;
+  if (b.dataset.a === 'ubah') return bukaForm(r);
+  if (!dbSiap) return toast('Database belum disiapkan');
+  if (!confirm(`Hapus "${r.nama}"? Tindakan ini tidak bisa dibatalkan.`)) return;
+  try { await rpc('kalk_hapus', { p_kode: KODE, p_id: r.id }); toast('Item dihapus'); await muat(); } catch (er) { alert(er.message); }
+});
+$('form').addEventListener('submit', async e => {
+  e.preventDefault(); if (!dbSiap) return $('pForm').textContent = 'Database belum disiapkan.';
+  $('dSimpan').disabled = true;
+  try {
+    await rpc('kalk_simpan', { p_kode: KODE, p_id: edit ? edit.id : null, p_jenis: $('fJenis').value, p_kategori: $('fKat').value, p_nama: $('fNama').value, p_harga: Math.round(+$('fHarga').value) });
+    $('dlg').close(); toast('Tersimpan'); jenis = $('fJenis').value;
+    document.querySelectorAll('.tab').forEach(x => x.classList.toggle('aktif', x.dataset.j === jenis)); await muat();
+  } catch (er) { $('pForm').textContent = er.message; } finally { $('dSimpan').disabled = false; }
+});
+</script>
+</body></html>
