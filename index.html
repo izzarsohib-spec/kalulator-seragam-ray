@@ -27,7 +27,7 @@
   </div>
 </main>
 <div class="toast" id="toast"></div>
-<script src="config.js"></script><script src="umum.js"></script>
+<script src="umum.js"></script>
 <script>
 let SEMUA = [], jenis = 'seragam', kat = '', kunci = '';
 const QTY = new Map(); // id -> jumlah (hanya di memori, tidak disimpan)
@@ -82,10 +82,7 @@ $('salin').addEventListener('click', async () => {
   try { await navigator.clipboard.writeText(teks); toast('Ringkasan disalin'); } catch { toast('Gagal menyalin'); }
 });
 
-muatDaftar().then(({ data, sumber, galat }) => {
-  SEMUA = data;
-  if (sumber === 'awal') { const b = $('banner'); b.hidden = false; b.textContent = 'Memakai daftar harga awal bawaan karena database kalkulator belum siap (' + galat + '). Edit harga lewat Administrator baru berlaku setelah database disiapkan.'; }
-  gambarDaftar(); hitung();
-});
+muatDaftar().then(data => { SEMUA = data; gambarDaftar(); hitung(); })
+  .catch(e => { const b = $('banner'); b.hidden = false; b.textContent = 'Gagal memuat daftar harga: ' + e.message; $('daftar').innerHTML = ''; });
 </script>
 </body></html>
