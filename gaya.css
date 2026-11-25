@@ -4,8 +4,10 @@
 html { background:#0d1b33; }
 body { margin:0; min-height:100vh; color:var(--teks); font:17px/1.45 "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
   background:
-    linear-gradient(180deg, rgba(13,27,51,.68), rgba(13,27,51,.5) 40%, rgba(13,27,51,.72)),
-    url("latar.png") center 30% / cover no-repeat #0d1b33;
+    radial-gradient(520px 420px at 12% 8%, rgba(227,211,160,.55), transparent 70%),
+    radial-gradient(620px 520px at 88% 18%, rgba(70,130,220,.55), transparent 70%),
+    radial-gradient(560px 480px at 70% 95%, rgba(40,170,160,.45), transparent 70%),
+    linear-gradient(135deg, #0d1b33 0%, #1f3a5f 55%, #16304f 100%);
   background-attachment:fixed; }
 .kartu, header.atas, dialog, .banner, .toast { -webkit-backdrop-filter:blur(18px) saturate(140%); backdrop-filter:blur(18px) saturate(140%); }
 header.atas { background:var(--kaca); border-bottom:1px solid var(--garis); color:#fff; padding:14px 22px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; position:sticky; top:0; z-index:5; box-shadow:0 8px 30px rgba(0,0,0,.18); }
